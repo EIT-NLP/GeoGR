@@ -1,0 +1,6 @@
+task: multi3drefer_val
+tag:
+  - scannet3d
+  - video_3d_5bench
+class: !function utils.Multi3DReferTask
+

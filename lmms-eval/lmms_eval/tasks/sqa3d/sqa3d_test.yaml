@@ -1,0 +1,6 @@
+task: sqa3d_test
+tag:
+  - scannet3d
+  - video_3d_5bench
+class: !function utils.SQA3DTask
+

@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Large data/results folders
+results/
+efficiency-results/
+
+# Model checkpoints and weights
+*.ckpt
+*.pth
+*.bin
+*.safetensors
+*.pt
+*.h5
+*.onnx
+*.pkl
+*.pickle
+
+# Large data files
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution
+dist/
+build/
+*.egg-info/

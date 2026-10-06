@@ -1,0 +1,9 @@
+scanqa_root: /path/to/Scanqa
+sqa3d_root: /path/to/SQA3D
+scanrefer_root: /path/to/ScanRefer_Dataset
+scan2cap_root: /path/to/Scan2Cap
+multi3drefer_root: /path/to/Multi3DRefer
+scannet_root: /path/to/Video-3D-LLM/data/scannet
+embodiedscan_root: /path/to/Video-3D-LLM/data/embodiedscan
+metadata_root: /path/to/Video-3D-LLM/data/metadata
+video_3d_llm_root: /path/to/Video-3D-LLM

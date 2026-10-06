@@ -1,0 +1,26 @@
+# Python build and runtime artifacts.
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.venv/
+venv/
+
+# Local evaluator configuration and generated output.
+.env
+lmms_eval/tasks/_task_utils/scannet3d/data_paths.local.yaml
+**/.cache/
+lm_cache/
+cache_dir/
+output/
+outputs/
+logs/
+*.log
+
+# Editor and operating-system metadata.
+.idea/
+.vscode/
+.ipynb_checkpoints/
+.DS_Store

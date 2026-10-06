@@ -1,0 +1,87 @@
+[tool.black]
+line-length = 240
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-3d-llm"
+version = "1.0.0"
+description = "Video-3D LLM: Learning Position-Aware Video Representation for 3D Scene Understanding"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+
+[project.optional-dependencies]
+standalone = [
+    "einops",
+    "ftfy",
+]
+
+
+train = [
+    "video-3d-llm[standalone]",
+    "numpy>=1.26.4,<2",
+    "requests",
+    "sentencepiece",
+    "torch==2.1.2",
+    "torchvision==0.16.2",
+    "wandb",
+    "deepspeed==0.14.4",
+    "peft==0.4.0",
+    "accelerate==0.33.0",
+    "tokenizers>=0.21,<0.22",
+    "transformers>=4.53,<4.54",
+    "bitsandbytes==0.41.0",
+    "einops==0.6.1",
+    "einops-exts==0.0.4",
+    "datasets>=2.19.0",
+    "timm",
+    "hf_transfer",
+    "opencv-python",
+    "av",
+    "decord",
+    "scipy",
+    "imageio",
+    "ray",
+]
+
+
+[tool.setuptools.packages.find]
+include = ["llava*"]
+exclude = [
+    "assets*",
+    "benchmark*",
+    "docs",
+    "dist*",
+    "playground*",
+    "scripts*",
+    "tests*",
+    "checkpoints*",
+    "project_checkpoints*",
+    "debug_checkpoints*",
+    "mlx_configs*",
+    "wandb*",
+    "notebooks*",
+]
+
+[tool.wheel]
+exclude = [
+    "assets*",
+    "benchmark*",
+    "docs",
+    "dist*",
+    "playground*",
+    "scripts*",
+    "tests*",
+    "checkpoints*",
+    "project_checkpoints*",
+    "debug_checkpoints*",
+    "mlx_configs*",
+    "wandb*",
+    "notebooks*",
+]

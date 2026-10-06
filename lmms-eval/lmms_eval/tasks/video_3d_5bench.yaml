@@ -1,0 +1,7 @@
+group: video_3d_5bench
+task:
+  - scanqa_val
+  - sqa3d_test
+  - scan2cap_val
+  - scanrefer_val
+  - multi3drefer_val
