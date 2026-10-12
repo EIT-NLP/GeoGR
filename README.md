@@ -5,23 +5,65 @@
 
 <div align="center">
 
-[![Code](https://img.shields.io/badge/Code-GeoGR-1f6feb?logo=github)](https://github.com/EIT-NLP/GeoGR) [![Dataset](https://img.shields.io/badge/Dataset-GeoRG--67K--CAT-yellow?logo=huggingface)](https://huggingface.co/datasets/EIT-NLP/GeoRG-67K-CAT)
+[![arXiv](https://img.shields.io/badge/arXiv-2610.13035-b31b1b)](https://arxiv.org/abs/2610.13035)
+[![Dataset](https://img.shields.io/badge/Dataset-GeoRG--67K--CAT-yellow?logo=huggingface)](https://huggingface.co/datasets/EIT-NLP/GeoRG-67K-CAT)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue)](https://opensource.org/licenses/Apache-2.0)
+[![Last Commit](https://img.shields.io/github/last-commit/EIT-NLP/GeoGR)](https://github.com/EIT-NLP/GeoGR)
 
-Yongxin Zheng<sup>1,*</sup>, Hao Wu<sup>1,2,*</sup>, Fang Li<sup>1</sup>, Hu Fu<sup>1</sup>, Peiran Yin<sup>1,2</sup>, Xudong Wang<sup>1</sup>,<br>
-Haozhe Hu<sup>1,2</sup>, Xinghao Chen<sup>1,3</sup>, Yunpu Ma<sup>4</sup>, Wei Zhang<sup>1</sup>, Xiaoyu Shen<sup>1,†</sup>
 
-<sup>1</sup>EIT-NLP Lab, Eastern Institute of Technology, Ningbo<br>
-<sup>2</sup>Shanghai Jiao Tong University · <sup>3</sup>The Hong Kong Polytechnic University<br>
-<sup>4</sup>Munich Center for Machine Learning, LMU Munich<br>
-<sup>*</sup>Equal contribution · <sup>†</sup>Corresponding author
 
 </div>
+
+> <strong>GeoGR: Spatial–Semantic Token Compression and Group Routing for Efficient 3D VLMs</strong>
+>
+> Yongxin Zheng<sup>\*,1</sup>, Hao Wu<sup>\*,1,2</sup>, Fang Li<sup>1</sup>, Hu Fu<sup>1</sup>, Peiran Yin<sup>1,2</sup>, Xudong Wang<sup>1</sup>, Haozhe Hu<sup>1,2</sup>, Xinghao Chen<sup>1,3</sup>, Yunpu Ma<sup>4</sup>, Wei Zhang<sup>1</sup>, Xiaoyu Shen<sup>1,†</sup>
+>
+> <sup>1</sup> EIT-NLP Lab, Eastern Institute of Technology, Ningbo
+>
+> <sup>2</sup> Shanghai Jiao Tong University · <sup>3</sup> Hong Kong Polytechnic University
+>
+> <sup>4</sup> Munich Center for Machine Learning, Ludwig Maximilian University of Munich
+>
+> <sup>\*</sup> Equal contribution. <sup>†</sup> Corresponding author.
+>
+> Contact: [haowu.83@sjtu.edu.cn](mailto:haowu.83@sjtu.edu.cn), [xyshen@eitech.edu.cn](mailto:xyshen@eitech.edu.cn)
+
+
 
 <p align="center">
   <img src="assets/geogr_framework.png" alt="GeoGR: GeoSemZip projector compression followed by GroupRoute decoder routing" width="100%">
 </p>
 
-This repository contains the implementation of **GeoGR**, a two-stage framework for efficient multi-view 3D vision-language models. **GeoSemZip** compresses cross-view visual tokens at the projector output; **GroupRoute** reduces their computation inside the language decoder while allowing skipped tokens to rejoin at later anchor layers. We provide integrations for **LLaVA-OneVision-7B** and **Video-3D LLM-7B**, together with post-training and evaluation scripts.
+If you find this work useful for your research and applications, please consider citing:
+
+```bibtex
+@misc{zheng2026geogrspatialsemantictokencompression,
+      title={GeoGR: Spatial-Semantic Token Compression and Group Routing for Efficient 3D VLMs}, 
+      author={Yongxin Zheng and Hao Wu and Fang Li and Hu Fu and Peiran Yin and Xudong Wang and Haozhe Hu and Xinghao Chen and Yunpu Ma and Wei Zhang and Xiaoyu Shen},
+      year={2026},
+      eprint={2610.13035},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2610.13035}, 
+}
+```
+
+
+<!-- This repository contains the implementation of **GeoGR**, a two-stage framework for efficient multi-view 3D vision-language models. **GeoSemZip** compresses cross-view visual tokens at the projector output; **GroupRoute** reduces their computation inside the language decoder while allowing skipped tokens to rejoin at later anchor layers. We provide integrations for **LLaVA-OneVision-7B** and **Video-3D LLM-7B**, together with post-training and evaluation scripts. -->
+
+## 🔥 News <a id="news"></a>
+
+- [TODO] Checkpoints will be released soon. 
+- **[2026.10.12]** The preprint is now published
+- **[2026.10.06]** The code is now published!
+
+
+## 💡 Highlights <a id="highlights"></a>
+
+- **Spatial–semantic token compression.** GeoSemZip consolidates observations across views into 3D voxel tokens. Semantic saliency selects dominant tokens, Morton-order sampling preserves spatial coverage, and residual merging aggregates unselected features into contextual anchors.
+- **Recoverable group routing.** GroupRoute combines late entry and early exit with query-conditioned group-wise skipping. Skipped tokens retain their hidden states and can resume computation after regrouping at later anchors.
+- **Two complementary backbones.** GeoGR supports both LLaVA-OneVision, which uses geometry to guide compression, and Video-3D LLM, which also incorporates explicit 3D positional information.
+
 
 ## Contents
 
@@ -36,11 +78,7 @@ This repository contains the implementation of **GeoGR**, a two-stage framework 
 - [License](#license)
 - [Acknowledgments](#acknowledgments)
 
-## Highlights
 
-- **Spatial–semantic token compression.** GeoSemZip consolidates observations across views into 3D voxel tokens. Semantic saliency selects dominant tokens, Morton-order sampling preserves spatial coverage, and residual merging aggregates unselected features into contextual anchors.
-- **Recoverable group routing.** GroupRoute combines late entry and early exit with query-conditioned group-wise skipping. Skipped tokens retain their hidden states and can resume computation after regrouping at later anchors.
-- **Two complementary backbones.** GeoGR supports both LLaVA-OneVision, which uses geometry to guide compression, and Video-3D LLM, which also incorporates explicit 3D positional information.
 
 ## Results
 
@@ -209,3 +247,25 @@ This source snapshot includes upstream code with its own license terms: [Video-3
 ## Acknowledgments
 
 We thank the authors and maintainers of [LLaVA-OneVision / LLaVA-NeXT](https://github.com/LLaVA-VL/LLaVA-NeXT), [Video-3D LLM](https://github.com/LaVi-Lab/Video-3D-LLM), [LMMs-Eval](https://github.com/EvolvingLMMs-Lab/lmms-eval), and [HiDrop](https://github.com/EIT-NLP/HiDrop), as well as the benchmark and compression-method authors whose work supports this project.
+
+
+## ✉️ Contact <a id="contact"></a>
+
+For questions, suggestions, or collaboration opportunities, please feel free to reach out:
+
+- **Hao Wu:** [haowu.83@sjtu.edu.cn](mailto:haowu.83@sjtu.edu.cn)
+- **Xiaoyu Shen:** [xyshen@eitech.edu.cn](mailto:xyshen@eitech.edu.cn)
+
+## 🌐 Related Projects <a id="projects"></a>
+- Survey
+  - [Awesome-MLLM-Compression] [From Data to Model: A Survey of the Compression Lifecycle in MLLMs](https://github.com/EIT-NLP/Awesome-MLLM-Compression)
+- Vision Encoder
+  - [CVPR 2026] [UTPTrack: Towards Simple and Unified Token Pruning for Visual Trackingrack](https://github.com/EIT-NLP/UTPTrack)
+
+- ImageLLM
+  - [EMNLP 2025] [VisiPruner: Decoding Discontinuous Cross-Modal Dynamics for Efficient Multimodal LLMs](https://github.com/EIT-NLP/VisiPruner)
+  - [ICLR 2026] [HiDrop: Hierarchical Vision Token Reduction in MLLMs via Late Injection, Concave Pyramid Pruning, and Early Exit](https://github.com/EIT-NLP/HiDrop)
+  - [Preprint] [ViCA: Efficient Multimodal LLMs with Vision-Only Cross-Attention
+](https://github.com/EIT-NLP/ViCA)
+  - [Preprint] [ViCA: Efficient Multimodal LLMs with Vision-Only Cross-Attention
+](https://github.com/EIT-NLP/MWOP)
